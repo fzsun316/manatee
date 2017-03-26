@@ -2,6 +2,14 @@
 
 This application was generated using JHipster 3.12.2, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v3.12.2](https://jhipster.github.io/documentation-archive/v3.12.2).
 
+## Updates
+
+1. A new status bar at bottom
+
+2. Master Log
+
+3. Fixed the bug that sometimes dragging gesture at queue page was not working.
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:

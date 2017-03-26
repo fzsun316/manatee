@@ -13,9 +13,9 @@
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
             <ul class="nav navbar-nav navbar-left">
-                <li>
-                    <span id="version-label">v0.1.0</span>
-                </li>
+                <!-- <li>
+                    <span id="version-label">v0.2.0</span>
+                </li> -->
                 <!-- <li ui-sref-active="active">
                     <a ui-sref="home" ng-click="vm.collapseNavbar()">
                         
@@ -109,6 +109,12 @@
                         </li> -->
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
+                </li>
+                <li >
+                    <a ui-sref="master-log" ng-click="vm.collapseNavbar()">
+                        <!-- <span class="glyphicon glyphicon-asterisk"></span>&nbsp; -->
+                        <span >Master Log</span>
+                    </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

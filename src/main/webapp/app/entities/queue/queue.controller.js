@@ -150,8 +150,7 @@
                     $scope.arrayPatientTeam = arrayPatientTeam;
                     $scope.arrayPotentialDischargedPatient = arrayPotentialDischargedPatient;
                     $scope.arrayIncomingPatient = arrayIncomingPatient;
-                    
-                    $scope.createConnectSortable();
+                    // $scope.createConnectSortable();
 
                     // var myVar = setInterval(myTimer, 3000);
 
@@ -166,6 +165,13 @@
 
 
         };
+
+        $scope.$watch('arrayPatientTeam', function() {
+            $scope.createConnectSortable();
+        });
+        $scope.$watch('arrayPotentialDischargedPatient', function() {
+            $scope.createConnectSortable();
+        });
 
         $scope.reloadAll = function() {
             var arrayTeam = [];
@@ -252,8 +258,17 @@
                     $scope.arrayPatientTeam = arrayPatientTeam;
                     $scope.arrayPotentialDischargedPatient = arrayPotentialDischargedPatient;
                     $scope.arrayIncomingPatient = arrayIncomingPatient;
-                    
-                    $scope.createConnectSortable();
+                    // $scope.createConnectSortable();
+
+                    // $scope.$apply(function () {
+                    //     $scope.arrayPatientTeam = arrayPatientTeam;
+                    //     $scope.arrayPotentialDischargedPatient = arrayPotentialDischargedPatient;
+                    //     $scope.arrayIncomingPatient = arrayIncomingPatient;
+                    // }).then(function() {
+                    //     $scope.createConnectSortable();
+                    // });
+
+
                 });
             });
         //         $scope.$apply();
@@ -262,6 +277,7 @@
         $scope.loadAll();
 
         $scope.createConnectSortable = function() {
+            console.log(" $scope.createConnectSortable");
             $( ".connectedSortable" ).sortable({
                       connectWith: ".connectedSortable",
                       items: "tr",
@@ -319,7 +335,7 @@
 
         var onSaveFinished = function () {
             $scope.addMessage();
-            $scope.createConnectSortable();
+            // $scope.createConnectSortable();
         };
 
         $scope.boxeditorclicked = function() {
@@ -456,7 +472,6 @@
           $scope.popoverIsVisible = false;
           $scope.popupContent = "";
         };
-
 
     }
 })();

@@ -16,7 +16,8 @@
             'ds.objectDiff',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar',
-            'gridster'
+            'gridster',
+            'data-table'
         ])
         .run(run);
 

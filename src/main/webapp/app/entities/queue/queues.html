@@ -107,79 +107,41 @@
             <ul class="queue">
                 <li gridster-item="item" ng-repeat="item in standardItems" style="background-color: white">
                     <div class="queue-content" style="">
-                        <div class="container" style="width: 100%; height: 100%">
-                        <p style="10%">
-                            <span class="queue-title">{{teams[$index].name}}</span>
-                            <button class="title-button" ng-mouseover="showPopover_team(teams[$index])" ng-mouseleave="hidePopover()">Details</button>
+                        <!-- <div class="container" style="width: 100%; height: 100%;"> -->
+                        <div class="header" >
+                            <a class="queue-title" ui-sref="team-detail({id:teams[$index].id})">{{teams[$index].name}}</a>
+                            <!-- <button class="title-button" ng-mouseover="showPopover_team(teams[$index])" ng-mouseleave="hidePopover()">Details</button> -->
                             <button class="title-button" ui-sref="team-detail({id:teams[$index].id})">History</button>
-                        </p>
+                        </div>
 
                         <div class="table-responsive" style="height: 90%;" >          
                           <table class="table queue-table"  ng-switch on="teams[$index].name">
                             <thead>
                               <tr>
-                                <th style="">MRID</th>
-                                <th style="">Name</th>
-                                <th style="">Edit</th>
+                                <th style="width:30%;text-align: center;">MRID</th>
+                                <th style="width:70%;text-align: center;">Name</th>
+                                <!-- <th style="">Edit</th> -->
                               </tr>
                             </thead>
                             <tbody  id={{teams[$index].id}} class="connectedSortable" style="">
                                 <tr style="" ng-repeat="patientItem in arrayPatientTeam[$index]" id={{patientItem.id}} ng-switch on="teams[$index].name" ng-class="{0:'default', 1:'grayout'}[patientItem.status]">
                                     <td style="">{{patientItem.patient.medicalReferralId}}</td>
-                                    <td style="" id="name"><a ui-sref="patient-detail({id:patientItem.id})">{{patientItem.patient.name}}<span id="onHover">Priority: {{patientItem.patient.priority}}</span></a></td>
-                                    <td style=""><a ui-sref="queue.patientedit({id:patientItem.id})">Edit</a></td>
+                                    <td style="" id="name"><a ui-sref="patient-detail({id:patientItem.id})">{{patientItem.patient.name}}</a></td>
+                                    <!-- <td style=""><a ui-sref="queue.patientedit({id:patientItem.id})">Edit</a></td> -->
                                 </tr>
                                 <tr style="" ng-if="arrayPatientTeam[$index].length==0" id=-1 style="">
-                                    <td style=""></td>
-                                    <td style=""><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Drag patients here</td>
-                                    <td style=""></td>
+                                    <td colspan="2" style="width:100%"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Drag patients here</td>
+                                   <!--  <td style=""></td> -->
                                 </tr>
                             </tbody>
                           </table>
-                        </div>
+                        <!-- </div> -->
                         
                     </div>
                 </li>
                 <!-- <script src="content/js/custom-queue.js"></script> -->
             </ul>
         </div>
-
-
-
-              <!--<div class="row">
-               <div class="col-sm-4 queue"  ng-repeat="patientTeam in arrayPatientTeam" ng-init="$last && activateJQueryUI( )">
-                    <div class="queue-content">
-                        <p>
-                            <span class="queue-title">{{teams[arrayPatientTeam.indexOf(patientTeam)].name}}</span>
-                            <span class="title-button" ng-mouseover="showPopover_team(teams[arrayPatientTeam.indexOf(patientTeam)])" ng-mouseleave="hidePopover()">Details</span>
-                            <span class="title-button" ui-sref="team-detail({id:teams[arrayPatientTeam.indexOf(patientTeam)].id})">History</span>
-                        </p>
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <thead class="connectedSortable-head" ng-switch on="teams[arrayPatientTeam.indexOf(patientTeam)].name">
-                                <tr>
-                                    <th ng-switch-when="Outside hospital - request for transfer" style="width: 10%">Timer</th>
-                                    <th ng-switch-when="Outside hospital - in transit" style="width: 10%">Countdown</th>
-                                    <th style="width: 10%">MRID</th>
-                                    <th style="width: 10%">Name</th>
-                                    <th style="width: 10%">Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody  id={{teams[arrayPatientTeam.indexOf(patientTeam)].id}} class="connectedSortable queueTable">
-                                <tr ng-repeat="patientItem in patientTeam" id={{patientItem.id}} ng-switch on="teams[arrayPatientTeam.indexOf(patientTeam)].name" ng-class="{0:'default', 1:'grayout'}[patientItem.status]">
-                                    <td ng-switch-when="Outside hospital - request for transfer" style="width: 10%"><timer start-time="patientItem.timestampSince">{{ddays}}:{{hhours}}:{{mminutes}}:{{sseconds}}</timer>
-                                    </td>
-                                    <td ng-switch-when="Outside hospital - in transit" style="width: 10%"><div ng-show="patientItem.timestampDue <= 0"></div> <div ng-show="patientItem.timestampDue > 0"><timer end-time="patientItem.timestampDue">{{ddays}}:{{hhours}}:{{mminutes}}:{{sseconds}}</timer>
-                                    </td>
-                                    <td style="width: 106px">{{patientItem.patient.medicalReferralId}}</td>
-                                    <td style="width: 107px" id="name"><a ui-sref="patient-detail({id:patientItem.id})">{{patientItem.patient.name}}<span id="onHover">Name: {{patientItem.patient.name}} <br>Priority: {{patientItem.patient.priority}}</span></a></td>
-                                    <td style="width: 107px"><a ui-sref="patient.edit({id:patientItem.id})">Edit</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div> -->
         </div>
     </div>
 

@@ -30,6 +30,7 @@ angular.module('manateeApp')
     };
     
     var reconnect = function() {
+      console.log("reconnect");
       $timeout(function() {
         initialize();
       }, this.RECONNECT_TIMEOUT);
@@ -49,7 +50,11 @@ angular.module('manateeApp')
     var startListener = function() {
       socket.stomp.subscribe(service.CHAT_TOPIC, function(data) {
         listener.notify(getMessage(data.body));
+        
       });
+      // socket.stomp.disconnect().then(function () {
+      //     console.log("startListener disconnect");
+      //   })
     };
     
     var initialize = function() {
