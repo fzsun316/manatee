@@ -1,0 +1,197 @@
+.popup-container {
+  position: absolute;
+  z-index: 999;
+  min-height: 100%;  /* Fallback for vh unit */
+  min-height: 100vh; /* You might also want to use
+                        'height' property instead.
+                        
+                        Note that for percentage values of
+                        'height' or 'min-height' properties,
+                        the 'height' of the parent element
+                        should be specified explicitly.
+  
+                        In this case the parent of '.vertical-center'
+                        is the <body> element */
+
+  /* Make it a flex container */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; 
+  
+  /* Align the bootstrap's container vertically */
+    -webkit-box-align : center;
+  -webkit-align-items : center;
+       -moz-box-align : center;
+       -ms-flex-align : center;
+          align-items : center;
+  
+  /* In legacy web browsers such as Firefox 9
+     we need to specify the width of the flex container */
+  width: 100%;
+  
+  /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+     hence the bootstrap's container won't be aligned to the center anymore.
+  
+     Therefore, we should use the following declarations to get it centered again */
+         -webkit-box-pack : center;
+            -moz-box-pack : center;
+            -ms-flex-pack : center;
+  -webkit-justify-content : center;
+          justify-content : center;
+}
+
+.central-popup {
+  background-color: white;
+  white-space: pre;
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid #eee;
+}
+
+.chart .legend {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: start;
+  font-size: 12px;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.chart .label {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: end;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.queue-table {
+  font-size: 0.8em;
+}
+
+/*.connectedSortable-head {
+    display: block;
+    width: 100%;
+    
+    height: 15px;
+    overflow-y: scroll;
+  }
+  .connectedSortable-head tr {
+    width: 100%;
+  }
+.connectedSortable-head tr th {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #777;
+    text-align: center;
+    border-bottom:1pt solid #e5e5e5;
+  }
+
+.queueTable {
+    display: block;
+    width: 100%;    
+    height: 120px;
+    overflow-y: scroll;
+  }
+  .queueTable tr {
+    width: 100%;
+    height: 30px;
+  }
+.queueTable tr td {
+    font-size: 0.8em;
+    color: #777;
+    text-align: center;
+    border-bottom:1pt solid #e5e5e5;
+    border-top:1pt solid #e5e5e5;
+  }
+.queueTable tr:hover td{ 
+    background-color: #9068be;
+    color: white;
+}*/
+
+.dischargedQueueTable-head {
+    display: block;
+    width: 100%;
+    
+    /*height: 200px;*/
+    overflow-y: scroll;
+  }
+  .dischargedQueueTable-head tr {
+    width: 100%;
+    height: 30px;
+  }
+.dischargedQueueTable-head tr th {
+    font-size: 0.7em;
+    font-weight: lighter;
+    color: #fff;
+    text-align: center;
+    border-bottom:1pt solid #e5e5e5;
+  }
+.dischargedQueueTable {
+    display: block;
+    width: 100%;    
+    height: 200px;
+    overflow-y: scroll;
+  }
+  .dischargedQueueTable tr {
+    width: 100%;
+    height: 30px;
+  }
+.dischargedQueueTable tr td {
+    /*margin-right: 20px;*/
+    /*background-color: black;*/
+    font-size: 0.7em;
+    font-weight: lighter;
+    /*width: 100%;*/
+    /*height: 20%;*/
+    color: #fff;
+    text-align: center;
+    /*border-bottom:1pt solid #e5e5e5;
+    border-top:1pt solid #e5e5e5;*/
+  }
+  .dischargedQueueTable tr td button{ 
+    background-color: transparent;
+    border: 1pt solid transparent;
+}
+.dischargedQueueTable tr:hover td{ 
+    background-color: #9068be;
+    color: white;
+}
+.dischargedQueueTable tr:hover td button{ 
+    background-color: #9068be;
+    color: white;
+    border: 1pt solid transparent;
+}
+
+.queue-title {
+  width: 100%;
+  padding: 5px;
+}
+.table-nonfluid tr{
+  /*background-color: black;*/
+  /*margin: 0px !important;*/
+}
+
+.grayout td{
+  background-color: #d2d2d2;
+}
+
+.history-table th, td {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
