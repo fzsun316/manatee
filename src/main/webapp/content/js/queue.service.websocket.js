@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('manateeApp')
-    .service("ChatService", function($q, $timeout) {
+    .service("ChatService", ['$q', '$timeout', function($q, $timeout) {
+
     
     var service = {}, listener = $q.defer(), socket = {
       client: null,
@@ -60,4 +61,4 @@ angular.module('manateeApp')
     
     initialize();
     return service;
-  });
+  }]);
