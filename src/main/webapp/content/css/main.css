@@ -77,6 +77,10 @@ html, body {
     height: 53px;
 }
 
+.navbar ul li a span {
+    color: #555 !important;
+}
+
 .navbar-header img{
     margin: 7px 10px 0px 10px;
     height: 40px;
@@ -95,7 +99,7 @@ html, body {
     position: absolute;
     bottom: 0;
     top: 53px;
-    /*bottom: 53px;*/
+    bottom: 24px;
     width: 100%;
     overflow: auto;
 }
@@ -182,50 +186,25 @@ html, body {
 }
 #content-main .queue .queue-content .header {
     background-color: #2f313e;
-    padding-top: 1px;
-    padding-bottom: 3px;
+    /*padding-top: 0px;
+    padding-bottom: 3px;*/
+    padding: 0px 3px 2px 3px;
 }
-/*#content-main .queue .queue-content .table-list{
-    position: relative;
-    margin: 10px auto;
-    padding: 0;
-    width: 100%;
-    height: auto;
-    border-collapse: collapse;
-    text-align: center;
-}*/
-/*#content-main .queue .queue-content thead {
-    width: 100%;
-    background-color: green;
-}
-#content-main .queue .queue-content thead tr {
-    width: 100%;
-    background-color: red;
-}
-#content-main .queue .queue-content thead tr th {
-    width: 33%;
-}*/
-/*#content-main .queue .queue-content tbody {
-  width: 100%;
-  float:left;
-}
-#content-main .queue .queue-content thead th,tbody td{
-  width: 100%;
-  float:left;
-}*/
 #content-main .queue .queue-content .header .title-button {
     color: #fff; 
-    background-color: #2f313e;
+    background-color: #a0a0a0;
     border: 1px solid #fff;
     border-radius: 5px;
     font-size: 65%;
-    padding: 1px 1px;
+    padding: 0px 1px;
+    /*margin-top: -2px;*/
     /*float: left;*/
 }
 #content-main .queue .queue-content .header .queue-title {
-    color: #ec6841;
+    /*color: #ec6841;*/
     /*background-color: #fff;*/
-    font-size: 90%;
+    color: #fff; 
+    font-size: 80%;
     /*float: left;
     position: relative;*/
     /*padding-top: 17px;
