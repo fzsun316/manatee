@@ -8,7 +8,6 @@
     "src/main/webapp/bower_components"
   ],
   "devDependencies": {
-    "angular-data-table": "0.7.0",
     "bower": "1.7.9",
     "browser-sync": "2.17.0",
     "del": "2.2.2",
@@ -17,6 +16,7 @@
     "event-stream": "3.3.4",
     "generator-jhipster": "3.12.2",
     "gulp": "3.9.1",
+    "angular-datatables": "2.2.0",
     "gulp-angular-filesort": "1.1.1",
     "gulp-angular-templatecache": "2.0.0",
     "gulp-autoprefixer": "3.1.1",

@@ -4,7 +4,7 @@
 
 <div class="content-header">
     <div class="title">
-    QUEUES
+    Queue
     </div>
     <div class="control-button">
         <button class="navigation-btn" ui-sref="queue.new" style="float:left;">
@@ -31,6 +31,7 @@
         </div>
         <ui class="sidebar-connectedSortable">
             <li ng-repeat="team in teams" >
+                <div class="my-progress-bar" id={{team.progressbarid}}></div>
                 <div class="my-progress-bar" id={{team.progressbarid}}></div>
                 <div class="queue-title"><p>{{team.name}}</p></div>
                 {{activateProgressBar(team.progressbarid, team.occupation, team.progressbarText)}}
