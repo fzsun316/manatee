@@ -473,5 +473,6 @@
           $scope.popupContent = "";
         };
 
+        $scope.createConnectSortable();
     }
 })();
