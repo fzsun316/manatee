@@ -50,6 +50,45 @@
         });
         $scope.$on('$destroy', unsubscribe);
 
+        vm.buttons = [{
+            extend: "excelHtml5",
+            filename: "master_log",
+            title: "Master Log Report",
+            exportOptions: {
+                columns: ':visible'
+            },
+            //CharSet: "utf8",
+            exportData: {
+                decodeEntities: true
+            }
+        }, {
+            extend: "csvHtml5",
+            fileName: "master_log",
+            exportOptions: {
+                columns: ':visible'
+            },
+            exportData: {
+                decodeEntities: true
+            }
+        }, {
+            extend: "pdfHtml5",
+            fileName: "master_log",
+            title: "Master Log Report",
+            exportOptions: {
+                columns: ':visible'
+            },
+            exportData: {
+                decodeEntities: true
+            }
+        }, {
+            extend: 'print',
+            //text: 'Print current page',
+            autoPrint: false,
+            exportOptions: {
+                columns: ':visible'
+            }
+        }];
+
         $scope.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
             return $q.when(EntityAuditService.findByEntity("com.fangzhou.manatee.domain.Queue", 9999).then(function(data) {
                 var audits = data.map(function(it) {
@@ -58,7 +97,7 @@
                 });
                 return generate_table_data(audits, vm.team);
             }));
-        }).withPaginationType('full_numbers').withDisplayLength(20);;
+        }).withPaginationType('full_numbers').withDisplayLength(20).withButtons(vm.buttons);
 
         $scope.dtColumns = [
             DTColumnBuilder.newColumn('patientId').withTitle('MRN'),
@@ -69,5 +108,8 @@
             DTColumnBuilder.newColumn('lastModifiedBy').withTitle('User')
             // .notVisible()
         ];
+
+        
+
     }
 })();

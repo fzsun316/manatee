@@ -17,7 +17,8 @@
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar',
             'gridster',
-            'datatables'
+            'datatables',
+            'datatables.buttons'
         ])
         .run(run);
 
