@@ -5,7 +5,7 @@
         .module('manateeApp')
         .controller('MasterLogController', MasterLogController);
 
-    MasterLogController.$inject = ['$scope', '$state', 'EntityAuditService', 'DTOptionsBuilder', 'DTColumnBuilder', "$q", '$timeout'];
+    MasterLogController.$inject = ['$scope', '$state', 'EntityAuditService', 'DTOptionsBuilder', 'DTColumnBuilder', "$q"];
 
     function generate_table_data(audits) {
         var array_records = [];
@@ -20,34 +20,22 @@
                         var patient = entityValue['patient'];
                         var team = entityValue['team'];
                         var teamBefore = "";
+                        var utcDate = entityValue['lastModifiedDate'];  // ISO-8601 formatted date returned from server
+                        var localDate = new Date(utcDate);
                         if (patient['id'] in tmp_patient_team) {
                             teamBefore = tmp_patient_team[patient['id']];
                         }
-                        var tmp_one_record = {'patientId': patient['id'], 'patientName': patient['name'], 'lastModifiedDate': entityValue['lastModifiedDate'], 'lastModifiedBy': entityValue['lastModifiedBy'], 'teamBefore': teamBefore, 'teamAfter': team['name']}
+                        var tmp_one_record = {'patientId': patient['id'], 'patientName': patient['name'], 'lastModifiedDate': localDate.toString(), 'lastModifiedBy': entityValue['lastModifiedBy'], 'teamBefore': teamBefore, 'teamAfter': team['name']}
                         tmp_patient_team[patient['id']] = team['name'];
                         // console.log(tmp_one_record)
                         array_records.push(tmp_one_record);
                     }
-                    // console.log(entityValue);
-                    // if ('team' in entityValue) {
-                    //     if (typeof entityValue['team'] === "object") {
-                    //         var patient = entityValue['patient'];
-                    //         array_records.push({
-                    //             'patientId': patient['id'],
-                    //             'patientName': patient['name'],
-                    //             'lastModifiedDate': entityValue['lastModifiedDate'],
-                    //             'lastModifiedBy': entityValue['lastModifiedBy'],
-                    //             'action': audits[i]['action'],
-                    //             'potentialDischarged': entityValue['status']
-                    //         });
-                    //     }
-                    // }
                 }
         }
         return array_records;
     }
 
-    function MasterLogController($scope, $state, EntityAuditService, DTOptionsBuilder, DTColumnBuilder, $q, $timeout) {
+    function MasterLogController($scope, $state, EntityAuditService, DTOptionsBuilder, DTColumnBuilder, $q) {
         var vm = this;
 
         $scope.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
