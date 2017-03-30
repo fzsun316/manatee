@@ -139,7 +139,7 @@
                                     }
                                 }
                         }
-                        console.log('arrayIncomingPatient', arrayIncomingPatient);
+                        // console.log('arrayIncomingPatient', arrayIncomingPatient);
                         for (var i in arrayTeam) {
                             // console.log(arrayTeam[i]['space']);
                             if (arrayTeam[i]['space'] == null) {
@@ -166,8 +166,6 @@
                             });
                         }
                         $scope.standardItems = standardItems;
-
-
                         $scope.arrayPatientTeam = arrayPatientTeam;
                         $scope.arrayPotentialDischargedPatient = arrayPotentialDischargedPatient;
                         $scope.arrayIncomingPatient = arrayIncomingPatient;
@@ -188,12 +186,13 @@
         };
 
         $scope.$watch('arrayPatientTeam', function() {
-            $scope.createConnectSortable();
+            // $scope.createConnectSortable();
         });
         $scope.$watch('arrayPotentialDischargedPatient', function() {
-            $scope.createConnectSortable();
+            // $scope.createConnectSortable();
         });
 
+        /*
         $scope.reloadAll = function() {
             var arrayTeam = [];
             var arrayPatientTeam = [];
@@ -220,10 +219,7 @@
                                     'progressbarid_today': 'progressbartoday-' + result[i]['id'],
                                     'progressbarid_today_count': map_team_admission_count_today['progressbartoday-' + result[i]['id']]
                                 });
-                                // arrayTeam.push({'id':result[i]['id'], 'name': result[i]['name'], 'space': result[i]['maxPatients'], 'progressbarid':'progressbar-'+result[i]['id'] });
                                 arrayPatientTeam.push([]);
-                                // console.log(result[i]['name']);
-                                // console.log(get_max_for_today(result[i]));
                             }
                     }
 
@@ -312,6 +308,7 @@
             });
             //         $scope.$apply();
         };
+        */
 
         $scope.loadAll();
 
@@ -331,9 +328,11 @@
                     }
                     if (teamID == "potentialdischarge") {
                         ui.sender.sortable("cancel");
-                        $('#QueueController').scope().updateStatus(id, "potentialdischarge");
+                        // $('#QueueController').scope().updateStatus(id, "potentialdischarge");
+                        $scope.updateStatus(id, "potentialdischarge");
                     } else {
-                        $('#QueueController').scope().updateTeam(id, teamID);
+                        // $('#QueueController').scope().updateTeam(id, teamID);
+                        $scope.updateTeam(id, teamID);
                     }
                     // console.log(id +"  receive: "+ teamID);
                 },
@@ -347,7 +346,7 @@
         ChatService.receive().then(null, null, function(message) {
             console.log("receive test message");
             // refresh_queue_page(false);
-            $scope.reloadAll(function(result) {
+            $scope.loadAll(function(result) {
                 $scope.activateProgressBar();
                 // $scope.activateTodayProgressBar();
             });
@@ -544,13 +543,17 @@
                         var entityType = audits[i]['entityType'];
                         var action = audits[i]['action'];
                         if (entityType == "com.fangzhou.manatee.domain.Queue") {
-                            var patient = entityValue['patient'];
-                            var team = entityValue['team'];
-                            var teamId = "progressbartoday-" + team['id'].toString();
-                            if (teamId in tmp_team_count) {
-                                tmp_team_count[teamId] += 1;
-                            } else {
-                                tmp_team_count[teamId] = 1;
+
+                            if (entityValue['status']!== null && entityValue['status']!== "potentialdischarge") {
+                                // console.log(entityValue['status']);
+                                var patient = entityValue['patient'];
+                                var team = entityValue['team'];
+                                var teamId = "progressbartoday-" + team['id'].toString();
+                                if (teamId in tmp_team_count) {
+                                    tmp_team_count[teamId] += 1;
+                                } else {
+                                    tmp_team_count[teamId] = 1;
+                                }
                             }
                         }
                     }

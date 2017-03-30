@@ -262,10 +262,26 @@ html, body {
     padding: 2px;
 }
 #content-sidebar .sidebar-connectedSortable li .my-progress-bar p {
-    color:#fff !important;
+    color:#ed6741 !important;
     font-size: 90%;
 }
 #content-sidebar .sidebar-connectedSortable li .my-progress-bar > svg {
+    height: 100%;
+    /*display: block;*/
+}
+#content-sidebar .sidebar-connectedSortable li .my-progress-bar2 {
+    width: 33px;
+    height: 40px;
+    /*background: red;*/
+    float: left;
+    padding: 2px;
+    margin-right: 4px;
+}
+#content-sidebar .sidebar-connectedSortable li .my-progress-bar2 p {
+    color:#3c8dbc !important;
+    font-size: 90%;
+}
+#content-sidebar .sidebar-connectedSortable li .my-progress-bar2 > svg {
     height: 100%;
     /*display: block;*/
 }

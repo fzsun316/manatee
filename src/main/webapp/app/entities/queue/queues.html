@@ -1,6 +1,6 @@
 <script src="content/js/progressbar.min.js"></script>
 <script src="content/js/custom-progressbar.js"></script>
-<div id="QueueController" ng-controller="QueueController"></div>
+<!-- <div id="QueueController" ng-controller="QueueController"></div> -->
 
 <div class="content-header">
     <div class="title">
@@ -13,9 +13,9 @@
         <button class="navigation-btn" ui-sref="queue.newpatient" style="float:left;">
                     <span class="glyphicon glyphicon-user"></span> <span>Create Patient</span>
                 </button>
-        <button class="navigation-btn" ui-sref="queue.history" style="float:left;">
+        <!-- <button class="navigation-btn" ui-sref="queue.history" style="float:left;">
                     <span class="glyphicon glyphicon-header"></span> <span>Today's History</span>
-                </button>
+                </button> -->
         <button class="navigation-btn" ng-click="boxeditorclicked()" style="float:left;">
                     <span ng:class="{true:'glyphicon glyphicon-th', false:'glyphicon glyphicon-stop'}[gridsterOpts.draggable.enabled==true]" ></span> <span>{{gridsterOpts.draggable.enabled ? 'Box Editor Enabled' : 'Box Editor Disabled'}}</span>
                 </button>
@@ -32,7 +32,7 @@
         <ui class="sidebar-connectedSortable">
             <li ng-repeat="team in teams" >
                 <div class="my-progress-bar" id={{team.progressbarid}}></div>
-                <div class="my-progress-bar" id={{team.progressbarid_today}}></div>
+                <div class="my-progress-bar2" id={{team.progressbarid_today}}></div>
                 <div class="queue-title"><p>{{team.name}}</p></div>
                 {{activateProgressBar(team.progressbarid, team.occupation, team.progressbarText, team.progressbarid_today, team.progressbarid_today_count)}}
             </li>
@@ -139,6 +139,9 @@
                         <!-- </div> -->
                         
                     </div>
+                <!-- {{if (1==1) console.log("dfadsfas");}} -->
+                <!-- {{createConnectSortable()}} -->
+                <span ng-if="$index==standardItems.length-1" ng-init="createConnectSortable()"/>
                 </li>
                 <!-- <script src="content/js/custom-queue.js"></script> -->
             </ul>
